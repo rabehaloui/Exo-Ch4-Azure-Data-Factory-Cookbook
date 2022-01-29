@@ -26,6 +26,9 @@
 		"linkedService1_servicePrincipalKey": {
 			"value": ""
 		},
+		"linkedService2_password": {
+			"value": ""
+		},
 		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
 			"value": "104fc125-963d-49a2-9c54-7e47f46c457a"
 		},
@@ -55,6 +58,9 @@
 		},
 		"linkedService1_properties_typeProperties_tenant": {
 			"value": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
+		},
+		"linkedService2_properties_typeProperties_userName": {
+			"value": "admin"
 		},
 		"containerUri": {
 			"value": ""

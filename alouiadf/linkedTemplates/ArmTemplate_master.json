@@ -35,6 +35,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'servicePrincipalKey' of 'linkedService1'"
 		},
+		"linkedService2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'linkedService2'"
+		},
 		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
 			"type": "string",
 			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
@@ -74,6 +78,10 @@
 		"linkedService1_properties_typeProperties_tenant": {
 			"type": "string",
 			"defaultValue": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
+		},
+		"linkedService2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
 		},
 		"containerUri": {
 			"type": "string",
@@ -123,6 +131,9 @@
 					"linkedService1_servicePrincipalKey": {
 						"value": "[parameters('linkedService1_servicePrincipalKey')]"
 					},
+					"linkedService2_password": {
+						"value": "[parameters('linkedService2_password')]"
+					},
 					"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
 						"value": "[parameters('HDIlinkedService_properties_typeProperties_hostSubscriptionId')]"
 					},
@@ -152,6 +163,9 @@
 					},
 					"linkedService1_properties_typeProperties_tenant": {
 						"value": "[parameters('linkedService1_properties_typeProperties_tenant')]"
+					},
+					"linkedService2_properties_typeProperties_userName": {
+						"value": "[parameters('linkedService2_properties_typeProperties_userName')]"
 					}
 				}
 			},
