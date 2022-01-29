@@ -22,7 +22,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "linkedService1",
+					"referenceName": "linkedService2",
 					"type": "LinkedServiceReference"
 				}
 			}
