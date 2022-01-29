@@ -3,7 +3,7 @@
 	"location": "francecentral",
 	"identity": {
 		"type": "SystemAssigned",
-		"principalId": "a044b8e9-82a7-4e52-9075-69b7063c0a54",
+		"principalId": "a5d64093-9c3f-4177-9909-5570f9817552",
 		"tenantId": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
 	}
 }
