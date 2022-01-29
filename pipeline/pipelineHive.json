@@ -22,7 +22,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "HDIlinkedService",
+					"referenceName": "linkedService1",
 					"type": "LinkedServiceReference"
 				}
 			}
