@@ -29,6 +29,9 @@
 		"linkedService2_password": {
 			"value": ""
 		},
+		"hdidtlk_connectionString": {
+			"value": ""
+		},
 		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
 			"value": "104fc125-963d-49a2-9c54-7e47f46c457a"
 		},

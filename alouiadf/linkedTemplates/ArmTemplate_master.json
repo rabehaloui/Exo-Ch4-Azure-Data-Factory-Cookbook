@@ -39,6 +39,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'linkedService2'"
 		},
+		"hdidtlk_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'hdidtlk'"
+		},
 		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
 			"type": "string",
 			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
@@ -112,6 +116,9 @@
 					},
 					"AzureDataLakelinkedService_connectionString": {
 						"value": "[parameters('AzureDataLakelinkedService_connectionString')]"
+					},
+					"hdidtlk_connectionString": {
+						"value": "[parameters('hdidtlk_connectionString')]"
 					},
 					"HDIlinkedService_clusterPassword": {
 						"value": "[parameters('HDIlinkedService_clusterPassword')]"

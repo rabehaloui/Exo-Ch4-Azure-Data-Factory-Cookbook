@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureDataLakelinkedService'"
 		},
+		"hdidtlk_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'hdidtlk'"
+		},
 		"HDIlinkedService_clusterPassword": {
 			"type": "secureString",
 			"metadata": "Secure string for 'clusterPassword' of 'HDIlinkedService'"
@@ -97,6 +101,19 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureDataLakelinkedService_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/hdidtlk')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('hdidtlk_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -240,7 +257,7 @@
 						"typeProperties": {
 							"scriptPath": "adf/query.hql",
 							"scriptLinkedService": {
-								"referenceName": "AzureDataLakelinkedService",
+								"referenceName": "hdidtlk",
 								"type": "LinkedServiceReference"
 							}
 						},
@@ -258,7 +275,7 @@
 				"lastPublishTime": "2022-01-29T15:48:39Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakelinkedService')]",
+				"[concat(variables('factoryId'), '/linkedServices/hdidtlk')]",
 				"[concat(variables('factoryId'), '/linkedServices/linkedService2')]"
 			]
 		}
