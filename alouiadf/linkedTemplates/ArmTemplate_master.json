@@ -1,0 +1,112 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "alouiadf"
+		},
+		"AzureDataLakelinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureDataLakelinkedService'"
+		},
+		"HDIlinkedService_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'HDIlinkedService'"
+		},
+		"HDIlinkedService_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'HDIlinkedService'"
+		},
+		"HDIlinkedService_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'HDIlinkedService'"
+		},
+		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
+		},
+		"HDIlinkedService_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "FormationAzure"
+		},
+		"HDIlinkedService_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "fa6c7a1b-2020-4556-b4c7-0ba54bec29c9"
+		},
+		"HDIlinkedService_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
+		},
+		"HDIlinkedService_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"HDIlinkedService_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshuser"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "alouiadf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakelinkedService_connectionString": {
+						"value": "[parameters('AzureDataLakelinkedService_connectionString')]"
+					},
+					"HDIlinkedService_clusterPassword": {
+						"value": "[parameters('HDIlinkedService_clusterPassword')]"
+					},
+					"HDIlinkedService_clusterSshPassword": {
+						"value": "[parameters('HDIlinkedService_clusterSshPassword')]"
+					},
+					"HDIlinkedService_servicePrincipalKey": {
+						"value": "[parameters('HDIlinkedService_servicePrincipalKey')]"
+					},
+					"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('HDIlinkedService_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"HDIlinkedService_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('HDIlinkedService_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"HDIlinkedService_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('HDIlinkedService_properties_typeProperties_servicePrincipalId')]"
+					},
+					"HDIlinkedService_properties_typeProperties_tenant": {
+						"value": "[parameters('HDIlinkedService_properties_typeProperties_tenant')]"
+					},
+					"HDIlinkedService_properties_typeProperties_clusterUserName": {
+						"value": "[parameters('HDIlinkedService_properties_typeProperties_clusterUserName')]"
+					},
+					"HDIlinkedService_properties_typeProperties_clusterSshUserName": {
+						"value": "[parameters('HDIlinkedService_properties_typeProperties_clusterSshUserName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

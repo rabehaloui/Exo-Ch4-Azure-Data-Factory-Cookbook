@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "alouiadf"
+		},
+		"AzureDataLakelinkedService_connectionString": {
+			"value": ""
+		},
+		"HDIlinkedService_clusterPassword": {
+			"value": ""
+		},
+		"HDIlinkedService_clusterSshPassword": {
+			"value": ""
+		},
+		"HDIlinkedService_servicePrincipalKey": {
+			"value": ""
+		},
+		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
+			"value": "104fc125-963d-49a2-9c54-7e47f46c457a"
+		},
+		"HDIlinkedService_properties_typeProperties_clusterResourceGroup": {
+			"value": "FormationAzure"
+		},
+		"HDIlinkedService_properties_typeProperties_servicePrincipalId": {
+			"value": "fa6c7a1b-2020-4556-b4c7-0ba54bec29c9"
+		},
+		"HDIlinkedService_properties_typeProperties_tenant": {
+			"value": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
+		},
+		"HDIlinkedService_properties_typeProperties_clusterUserName": {
+			"value": "admin"
+		},
+		"HDIlinkedService_properties_typeProperties_clusterSshUserName": {
+			"value": "sshuser"
+		}
+	}
+}
