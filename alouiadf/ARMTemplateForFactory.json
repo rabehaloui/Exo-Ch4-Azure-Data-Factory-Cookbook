@@ -23,6 +23,18 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'servicePrincipalKey' of 'HDIlinkedService'"
 		},
+		"linkedService1_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'linkedService1'"
+		},
+		"linkedService1_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'linkedService1'"
+		},
+		"linkedService1_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'linkedService1'"
+		},
 		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
 			"type": "string",
 			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
@@ -46,6 +58,22 @@
 		"HDIlinkedService_properties_typeProperties_clusterSshUserName": {
 			"type": "string",
 			"defaultValue": "sshuser"
+		},
+		"linkedService1_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
+		},
+		"linkedService1_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "FormationAzure"
+		},
+		"linkedService1_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "67103aff-bbad-4cf3-8d31-7439ff179b85"
+		},
+		"linkedService1_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
 		}
 	},
 	"variables": {
@@ -78,7 +106,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "HDIlinkedService",
+							"referenceName": "linkedService1",
 							"type": "LinkedServiceReference"
 						}
 					}
@@ -92,7 +120,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakelinkedService')]",
-				"[concat(variables('factoryId'), '/linkedServices/HDIlinkedService')]"
+				"[concat(variables('factoryId'), '/linkedServices/linkedService1')]"
 			]
 		},
 		{
@@ -146,6 +174,48 @@
 							"type": "LinkedServiceReference"
 						}
 					],
+					"linkedServiceName": {
+						"referenceName": "AzureDataLakelinkedService",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": ""
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakelinkedService')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/linkedService1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "hadoop",
+					"clusterSize": 1,
+					"timeToLive": "00:15:00",
+					"version": "4.0",
+					"hostSubscriptionId": "[parameters('linkedService1_properties_typeProperties_hostSubscriptionId')]",
+					"clusterResourceGroup": "[parameters('linkedService1_properties_typeProperties_clusterResourceGroup')]",
+					"servicePrincipalId": "[parameters('linkedService1_properties_typeProperties_servicePrincipalId')]",
+					"tenant": "[parameters('linkedService1_properties_typeProperties_tenant')]",
+					"clusterNamePrefix": "",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "[parameters('linkedService1_clusterPassword')]"
+					},
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "[parameters('linkedService1_clusterSshPassword')]"
+					},
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('linkedService1_servicePrincipalKey')]"
+					},
 					"linkedServiceName": {
 						"referenceName": "AzureDataLakelinkedService",
 						"type": "LinkedServiceReference"

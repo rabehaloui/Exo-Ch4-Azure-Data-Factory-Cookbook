@@ -23,6 +23,18 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'servicePrincipalKey' of 'HDIlinkedService'"
 		},
+		"linkedService1_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'linkedService1'"
+		},
+		"linkedService1_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'linkedService1'"
+		},
+		"linkedService1_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'linkedService1'"
+		},
 		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
 			"type": "string",
 			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
@@ -46,6 +58,22 @@
 		"HDIlinkedService_properties_typeProperties_clusterSshUserName": {
 			"type": "string",
 			"defaultValue": "sshuser"
+		},
+		"linkedService1_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
+		},
+		"linkedService1_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "FormationAzure"
+		},
+		"linkedService1_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "67103aff-bbad-4cf3-8d31-7439ff179b85"
+		},
+		"linkedService1_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
 		},
 		"containerUri": {
 			"type": "string",
@@ -86,6 +114,15 @@
 					"HDIlinkedService_servicePrincipalKey": {
 						"value": "[parameters('HDIlinkedService_servicePrincipalKey')]"
 					},
+					"linkedService1_clusterPassword": {
+						"value": "[parameters('linkedService1_clusterPassword')]"
+					},
+					"linkedService1_clusterSshPassword": {
+						"value": "[parameters('linkedService1_clusterSshPassword')]"
+					},
+					"linkedService1_servicePrincipalKey": {
+						"value": "[parameters('linkedService1_servicePrincipalKey')]"
+					},
 					"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
 						"value": "[parameters('HDIlinkedService_properties_typeProperties_hostSubscriptionId')]"
 					},
@@ -103,6 +140,18 @@
 					},
 					"HDIlinkedService_properties_typeProperties_clusterSshUserName": {
 						"value": "[parameters('HDIlinkedService_properties_typeProperties_clusterSshUserName')]"
+					},
+					"linkedService1_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('linkedService1_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"linkedService1_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('linkedService1_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"linkedService1_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('linkedService1_properties_typeProperties_servicePrincipalId')]"
+					},
+					"linkedService1_properties_typeProperties_tenant": {
+						"value": "[parameters('linkedService1_properties_typeProperties_tenant')]"
 					}
 				}
 			},
