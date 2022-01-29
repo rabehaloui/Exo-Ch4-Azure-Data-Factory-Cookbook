@@ -33,7 +33,7 @@
 		},
 		"HDIlinkedService_properties_typeProperties_servicePrincipalId": {
 			"type": "string",
-			"defaultValue": "fa6c7a1b-2020-4556-b4c7-0ba54bec29c9"
+			"defaultValue": "67103aff-bbad-4cf3-8d31-7439ff179b85"
 		},
 		"HDIlinkedService_properties_typeProperties_tenant": {
 			"type": "string",
