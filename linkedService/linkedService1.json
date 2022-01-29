@@ -1,0 +1,28 @@
+{
+	"name": "linkedService1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "HDInsightOnDemand",
+		"typeProperties": {
+			"clusterType": "hadoop",
+			"clusterSize": 1,
+			"timeToLive": "00:15:00",
+			"version": "4.0",
+			"hostSubscriptionId": "104fc125-963d-49a2-9c54-7e47f46c457a",
+			"clusterResourceGroup": "FormationAzure",
+			"servicePrincipalId": "67103aff-bbad-4cf3-8d31-7439ff179b85",
+			"tenant": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e",
+			"clusterNamePrefix": "",
+			"additionalLinkedServiceNames": [],
+			"linkedServiceName": {
+				"referenceName": "AzureDataLakelinkedService",
+				"type": "LinkedServiceReference"
+			},
+			"headNodeSize": "",
+			"dataNodeSize": "",
+			"zookeeperNodeSize": "",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEQxQ0NCNjU0LTBFNzYtNEZBNi1CN0EzLTYyMjU0QTA5N0Y1N180NmNjOWM1Yi04YzM0LTQ4YTUtODk1NS0wOWE5OWY3NTk1YzAiDQp9"
+		}
+	}
+}
