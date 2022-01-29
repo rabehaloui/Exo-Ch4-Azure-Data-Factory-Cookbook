@@ -113,7 +113,7 @@
 						"typeProperties": {
 							"scriptPath": "adf/query.hql",
 							"scriptLinkedService": {
-								"referenceName": "hdidtlk",
+								"referenceName": "AzureDataLakelinkedService",
 								"type": "LinkedServiceReference"
 							}
 						},
@@ -131,7 +131,7 @@
 				"lastPublishTime": "2022-01-29T15:48:39Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/hdidtlk')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakelinkedService')]",
 				"[concat(variables('factoryId'), '/linkedServices/linkedService2')]"
 			]
 		},
