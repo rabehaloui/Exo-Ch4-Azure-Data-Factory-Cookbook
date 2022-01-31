@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "script"
+					"notebookPath": "/Users/alouirabeh@outlook.fr/mlnotbook"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricksLink",
