@@ -5,65 +5,8 @@
 		"factoryName": {
 			"value": "alouiadf"
 		},
-		"AzureDataLakelinkedService_connectionString": {
+		"AzureDatabricksLink_accessToken": {
 			"value": ""
-		},
-		"HDIlinkedService_clusterPassword": {
-			"value": ""
-		},
-		"HDIlinkedService_clusterSshPassword": {
-			"value": ""
-		},
-		"HDIlinkedService_servicePrincipalKey": {
-			"value": ""
-		},
-		"linkedService1_clusterPassword": {
-			"value": ""
-		},
-		"linkedService1_clusterSshPassword": {
-			"value": ""
-		},
-		"linkedService1_servicePrincipalKey": {
-			"value": ""
-		},
-		"linkedService2_password": {
-			"value": ""
-		},
-		"hdidtlk_connectionString": {
-			"value": ""
-		},
-		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
-			"value": "104fc125-963d-49a2-9c54-7e47f46c457a"
-		},
-		"HDIlinkedService_properties_typeProperties_clusterResourceGroup": {
-			"value": "FormationAzure"
-		},
-		"HDIlinkedService_properties_typeProperties_servicePrincipalId": {
-			"value": "67103aff-bbad-4cf3-8d31-7439ff179b85"
-		},
-		"HDIlinkedService_properties_typeProperties_tenant": {
-			"value": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
-		},
-		"HDIlinkedService_properties_typeProperties_clusterUserName": {
-			"value": "admin"
-		},
-		"HDIlinkedService_properties_typeProperties_clusterSshUserName": {
-			"value": "sshuser"
-		},
-		"linkedService1_properties_typeProperties_hostSubscriptionId": {
-			"value": "104fc125-963d-49a2-9c54-7e47f46c457a"
-		},
-		"linkedService1_properties_typeProperties_clusterResourceGroup": {
-			"value": "FormationAzure"
-		},
-		"linkedService1_properties_typeProperties_servicePrincipalId": {
-			"value": "67103aff-bbad-4cf3-8d31-7439ff179b85"
-		},
-		"linkedService1_properties_typeProperties_tenant": {
-			"value": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
-		},
-		"linkedService2_properties_typeProperties_userName": {
-			"value": "admin"
 		},
 		"containerUri": {
 			"value": ""

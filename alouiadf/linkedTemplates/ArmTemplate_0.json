@@ -7,85 +7,9 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "alouiadf"
 		},
-		"AzureDataLakelinkedService_connectionString": {
+		"AzureDatabricksLink_accessToken": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureDataLakelinkedService'"
-		},
-		"hdidtlk_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'hdidtlk'"
-		},
-		"HDIlinkedService_clusterPassword": {
-			"type": "secureString",
-			"metadata": "Secure string for 'clusterPassword' of 'HDIlinkedService'"
-		},
-		"HDIlinkedService_clusterSshPassword": {
-			"type": "secureString",
-			"metadata": "Secure string for 'clusterSshPassword' of 'HDIlinkedService'"
-		},
-		"HDIlinkedService_servicePrincipalKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'servicePrincipalKey' of 'HDIlinkedService'"
-		},
-		"linkedService1_clusterPassword": {
-			"type": "secureString",
-			"metadata": "Secure string for 'clusterPassword' of 'linkedService1'"
-		},
-		"linkedService1_clusterSshPassword": {
-			"type": "secureString",
-			"metadata": "Secure string for 'clusterSshPassword' of 'linkedService1'"
-		},
-		"linkedService1_servicePrincipalKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'servicePrincipalKey' of 'linkedService1'"
-		},
-		"linkedService2_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'linkedService2'"
-		},
-		"HDIlinkedService_properties_typeProperties_hostSubscriptionId": {
-			"type": "string",
-			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
-		},
-		"HDIlinkedService_properties_typeProperties_clusterResourceGroup": {
-			"type": "string",
-			"defaultValue": "FormationAzure"
-		},
-		"HDIlinkedService_properties_typeProperties_servicePrincipalId": {
-			"type": "string",
-			"defaultValue": "67103aff-bbad-4cf3-8d31-7439ff179b85"
-		},
-		"HDIlinkedService_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
-		},
-		"HDIlinkedService_properties_typeProperties_clusterUserName": {
-			"type": "string",
-			"defaultValue": "admin"
-		},
-		"HDIlinkedService_properties_typeProperties_clusterSshUserName": {
-			"type": "string",
-			"defaultValue": "sshuser"
-		},
-		"linkedService1_properties_typeProperties_hostSubscriptionId": {
-			"type": "string",
-			"defaultValue": "104fc125-963d-49a2-9c54-7e47f46c457a"
-		},
-		"linkedService1_properties_typeProperties_clusterResourceGroup": {
-			"type": "string",
-			"defaultValue": "FormationAzure"
-		},
-		"linkedService1_properties_typeProperties_servicePrincipalId": {
-			"type": "string",
-			"defaultValue": "67103aff-bbad-4cf3-8d31-7439ff179b85"
-		},
-		"linkedService1_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
-		},
-		"linkedService2_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "admin"
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksLink'"
 		}
 	},
 	"variables": {
@@ -93,158 +17,38 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakelinkedService')]",
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricksLink')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "AzureBlobStorage",
+				"type": "AzureDatabricks",
 				"typeProperties": {
-					"connectionString": "[parameters('AzureDataLakelinkedService_connectionString')]"
+					"domain": "https://adb-7490463002535149.9.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricksLink_accessToken')]"
+					},
+					"newClusterNodeType": "Standard_DS3_v2",
+					"newClusterNumOfWorker": "1",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "9.1.x-scala2.12",
+					"newClusterInitScripts": []
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/hdidtlk')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('hdidtlk_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/HDIlinkedService')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "HDInsightOnDemand",
-				"typeProperties": {
-					"clusterType": "hadoop",
-					"clusterSize": 1,
-					"timeToLive": "00:15:00",
-					"version": "4.0",
-					"hostSubscriptionId": "[parameters('HDIlinkedService_properties_typeProperties_hostSubscriptionId')]",
-					"clusterResourceGroup": "[parameters('HDIlinkedService_properties_typeProperties_clusterResourceGroup')]",
-					"servicePrincipalId": "[parameters('HDIlinkedService_properties_typeProperties_servicePrincipalId')]",
-					"osType": "Linux",
-					"tenant": "[parameters('HDIlinkedService_properties_typeProperties_tenant')]",
-					"clusterNamePrefix": "",
-					"clusterUserName": "[parameters('HDIlinkedService_properties_typeProperties_clusterUserName')]",
-					"clusterPassword": {
-						"type": "SecureString",
-						"value": "[parameters('HDIlinkedService_clusterPassword')]"
-					},
-					"clusterSshUserName": "[parameters('HDIlinkedService_properties_typeProperties_clusterSshUserName')]",
-					"clusterSshPassword": {
-						"type": "SecureString",
-						"value": "[parameters('HDIlinkedService_clusterSshPassword')]"
-					},
-					"servicePrincipalKey": {
-						"type": "SecureString",
-						"value": "[parameters('HDIlinkedService_servicePrincipalKey')]"
-					},
-					"additionalLinkedServiceNames": [
-						{
-							"referenceName": "AzureDataLakelinkedService",
-							"type": "LinkedServiceReference"
-						}
-					],
-					"linkedServiceName": {
-						"referenceName": "AzureDataLakelinkedService",
-						"type": "LinkedServiceReference"
-					},
-					"headNodeSize": "",
-					"dataNodeSize": "",
-					"zookeeperNodeSize": ""
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakelinkedService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/linkedService1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "HDInsightOnDemand",
-				"typeProperties": {
-					"clusterType": "hadoop",
-					"clusterSize": 1,
-					"timeToLive": "00:15:00",
-					"version": "4.0",
-					"hostSubscriptionId": "[parameters('linkedService1_properties_typeProperties_hostSubscriptionId')]",
-					"clusterResourceGroup": "[parameters('linkedService1_properties_typeProperties_clusterResourceGroup')]",
-					"servicePrincipalId": "[parameters('linkedService1_properties_typeProperties_servicePrincipalId')]",
-					"tenant": "[parameters('linkedService1_properties_typeProperties_tenant')]",
-					"clusterNamePrefix": "",
-					"clusterPassword": {
-						"type": "SecureString",
-						"value": "[parameters('linkedService1_clusterPassword')]"
-					},
-					"clusterSshPassword": {
-						"type": "SecureString",
-						"value": "[parameters('linkedService1_clusterSshPassword')]"
-					},
-					"servicePrincipalKey": {
-						"type": "SecureString",
-						"value": "[parameters('linkedService1_servicePrincipalKey')]"
-					},
-					"linkedServiceName": {
-						"referenceName": "AzureDataLakelinkedService",
-						"type": "LinkedServiceReference"
-					},
-					"headNodeSize": "",
-					"dataNodeSize": "",
-					"zookeeperNodeSize": ""
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakelinkedService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/linkedService2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "HDInsight",
-				"typeProperties": {
-					"clusterUri": "https://hdiadf.azurehdinsight.net",
-					"userName": "[parameters('linkedService2_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('linkedService2_password')]"
-					},
-					"isEspEnabled": false,
-					"linkedServiceName": {
-						"referenceName": "AzureDataLakelinkedService",
-						"type": "LinkedServiceReference"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakelinkedService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipelineHive')]",
+			"name": "[concat(parameters('factoryName'), '/pipelinedtbks')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "HiveJob",
-						"type": "HDInsightHive",
+						"name": "NotebookActivity",
+						"type": "DatabricksNotebook",
 						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
@@ -255,14 +59,10 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"scriptPath": "adf/query.hql",
-							"scriptLinkedService": {
-								"referenceName": "AzureDataLakelinkedService",
-								"type": "LinkedServiceReference"
-							}
+							"notebookPath": "script"
 						},
 						"linkedServiceName": {
-							"referenceName": "linkedService2",
+							"referenceName": "AzureDatabricksLink",
 							"type": "LinkedServiceReference"
 						}
 					}
@@ -271,12 +71,10 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": [],
-				"lastPublishTime": "2022-01-29T15:48:39Z"
+				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakelinkedService')]",
-				"[concat(variables('factoryId'), '/linkedServices/linkedService2')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricksLink')]"
 			]
 		}
 	]
